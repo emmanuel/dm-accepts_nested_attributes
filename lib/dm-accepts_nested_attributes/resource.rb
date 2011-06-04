@@ -229,7 +229,7 @@ module DataMapper
           destroyables << resource
         else
           assert_nested_update_clean_only(resource)
-          resource.attributes = DataMapper::Ext::Hash.except(attributes, *unupdatable_keys)
+          resource.attributes = DataMapper::Ext::Hash.except(attributes, *resource.unupdatable_keys)
           resource.save
         end
       end
